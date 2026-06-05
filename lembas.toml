@@ -12,7 +12,6 @@ planingfsi = "*"
 
 [dev-dependencies]
 pytest = "*"
-lembas = "*"
 
 [plugin]
 entry-point = "lembas_planingfsi:Plugin"
