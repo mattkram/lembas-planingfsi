@@ -16,7 +16,7 @@ jobs:
         environments: build
         locked: false
     - name: Download the build artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: conda-${{ github.sha }}
         path: ./conda-bld
@@ -38,7 +38,7 @@ jobs:
         environments: build
         locked: false
     - name: Download the build artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: wheel-${{ github.sha }}
         path: ./dist
