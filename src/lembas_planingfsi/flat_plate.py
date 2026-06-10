@@ -11,8 +11,10 @@ from planingfsi.dictionary import load_dict_from_file
 
 from lembas import Case
 from lembas import InputParameter
-from lembas import result
 from lembas import step
+
+# TODO: @result decorator not yet implemented in lembas-core
+# from lembas import result
 
 
 class PlaningPlateResults(NamedTuple):
@@ -67,7 +69,8 @@ class PlaningPlateCase(Case):
         """Run the planingfsi solver."""
         subprocess.run(["planingfsi", "run"], cwd=str(self.case_dir), check=True)
 
-    @result("drag", "lift", "moment")
+    # TODO: Re-enable @result decorator when implemented in lembas-core
+    # @result("drag", "lift", "moment")
     def forces(self) -> PlaningPlateResults:
         """Load force results from simulation output."""
         results_dirs = sorted(
