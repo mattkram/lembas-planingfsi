@@ -51,7 +51,7 @@ class PlaningPlateCase(Case):
                 f"Base case directory not found: {case_dir_base}. "
                 "Copy flat_plate_base from planingfsi examples."
             )
-        shutil.copytree(case_dir_base, self.case_dir)
+        shutil.copytree(case_dir_base, self.case_dir, dirs_exist_ok=True)
         with (self.case_dir / "configDict").open("w") as fp:
             fp.write("baseDict: './configDict.base'\n")
             fp.write(f"Fr: {self.froude_num}\n")
