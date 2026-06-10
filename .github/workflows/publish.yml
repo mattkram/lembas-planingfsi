@@ -8,7 +8,7 @@ jobs:
     name: Publish conda package to Anaconda.org
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Set up pixi
       uses: prefix-dev/setup-pixi@v0.9.6
       with:
@@ -30,7 +30,7 @@ jobs:
     name: Publish wheel to Anaconda.org
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Set up pixi
       uses: prefix-dev/setup-pixi@v0.9.6
       with:
