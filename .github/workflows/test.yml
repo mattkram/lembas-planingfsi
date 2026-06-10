@@ -31,9 +31,12 @@ jobs:
     - name: Test with pytest
       run: pytest tests/ -v
 
+  build:
+    uses: ./.github/workflows/build.yml
+
   check:
     if: always()
-    needs: [test]
+    needs: [test, build]
     runs-on: ubuntu-latest
     steps:
     - name: Decide whether all required jobs succeeded or failed

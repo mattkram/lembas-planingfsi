@@ -1,0 +1,30 @@
+[workspace]
+channels = ["conda-forge", "https://conda.anaconda.org/lembas-project"]
+name = "lembas-planingfsi"
+platforms = ["linux-64", "osx-arm64"]
+
+[dependencies]
+python = ">=3.11"
+planingfsi = "*"
+
+[pypi-dependencies]
+lembas-planingfsi = { path = ".", editable = true }
+
+[environments]
+build = { features = ["build"], solve-group = "default" }
+default = { features = ["dev"], solve-group = "default" }
+
+[feature.dev.dependencies]
+pytest = "*"
+
+[feature.build.dependencies]
+anaconda-client = "*"
+rattler-build = "*"
+setuptools-scm = "*"
+
+[feature.build.tasks]
+build = "python scripts/with_version.py rattler-build build --recipe conda.recipe/ --output-dir dist/ --channel conda-forge --channel lembas-project"
+upload = "anaconda --verbose --token $ANACONDA_ORG_TOKEN upload --user lembas-project $ANACONDA_LABEL --force"
+
+[tasks]
+test = "pytest tests/ -v"
