@@ -1,11 +1,8 @@
 schema_version: 1
 
-context:
-  version: ${{ env.get("VERSION", "0.0.0") }}
-
 package:
   name: lembas-planingfsi
-  version: ${{ version }}
+  version: ${{ env.get("PKG_VERSION") | default("0.0.0") }}
 
 source:
   path: ..
@@ -14,7 +11,7 @@ build:
   number: 0
   noarch: python
   script:
-    - SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }} python -m pip install . -vv --no-deps --no-build-isolation
+    - SETUPTOOLS_SCM_PRETEND_VERSION=${{ env.get("PKG_VERSION") | default("0.0.0") }} python -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -34,7 +31,7 @@ tests:
       pip_check: false
 
 about:
-  homepage: https://github.com/mattkram/lembas-planingfsi
+  homepage: https://github.com/lembas-project/lembas-planingfsi
   license: MIT
   license_file: LICENSE
   summary: Lembas plugin for planingfsi hydrodynamic simulations
