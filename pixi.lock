@@ -168,7 +168,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-ng-2.3.3-hceb46e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.25.0-py314h0f05182_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: https://files.pythonhosted.org/packages/b3/5f/cb0482e1fbf0c3393f6b4e070893319e01ba8da9160481c9cd7ab8597a51/lembas-0.1.0.dev0-py3-none-any.whl
       - pypi: ./
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_openmp_mutex-4.5-7_kmp_llvm.conda
@@ -319,7 +318,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zlib-ng-2.3.3-hed4e4f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstandard-0.25.0-py314h9d33bd4_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: https://files.pythonhosted.org/packages/b3/5f/cb0482e1fbf0c3393f6b4e070893319e01ba8da9160481c9cd7ab8597a51/lembas-0.1.0.dev0-py3-none-any.whl
       - pypi: ./
   default:
     channels:
@@ -424,7 +422,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxdmcp-1.1.5-hb03c661_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-ng-2.3.3-hceb46e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: https://files.pythonhosted.org/packages/b3/5f/cb0482e1fbf0c3393f6b4e070893319e01ba8da9160481c9cd7ab8597a51/lembas-0.1.0.dev0-py3-none-any.whl
       - pypi: ./
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_openmp_mutex-4.5-7_kmp_llvm.conda
@@ -517,7 +514,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/xorg-libxdmcp-1.1.5-hc919400_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zlib-ng-2.3.3-hed4e4f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: https://files.pythonhosted.org/packages/b3/5f/cb0482e1fbf0c3393f6b4e070893319e01ba8da9160481c9cd7ab8597a51/lembas-0.1.0.dev0-py3-none-any.whl
       - pypi: ./
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
@@ -1438,13 +1434,6 @@ packages:
   purls: []
   size: 728002
   timestamp: 1774197446916
-- pypi: https://files.pythonhosted.org/packages/b3/5f/cb0482e1fbf0c3393f6b4e070893319e01ba8da9160481c9cd7ab8597a51/lembas-0.1.0.dev0-py3-none-any.whl
-  name: lembas
-  version: 0.1.0.dev0
-  sha256: 9f0feaabac2e12c5c74ee19a0016982c479b4839db3299c4004c079669bd0ad3
-  requires_dist:
-  - codecov>=2.1.12,<3.0.0 ; extra == 'ci'
-  requires_python: '>=3.9,<3.12'
 - conda: https://conda.anaconda.org/lembas-project/noarch/lembas-0.1.0-pyh4616a5c_0.conda
   sha256: 5502473b3fda585f53390770adfe5b5a89f66a97052be94cb37b589ff48a4701
   md5: 950e45460da4864f883472fe676c696d
@@ -1462,11 +1451,9 @@ packages:
   timestamp: 1781065281440
 - pypi: ./
   name: lembas-planingfsi
-  version: 0.1.1.dev0+gb45a3d215.d20260610
-  sha256: d1e6e5fafcb3c020cc11ea8c4f8781b78e60ce784c5f2140e2329ee2cc750aea
+  version: 0.1.1.dev3+gd6d750d70.d20260610
+  sha256: 9f0415b5335266d9ee9f3d6a4c299893a71a4c9da20eac04ace3a5869db32565
   requires_dist:
-  - lembas
-  - planingfsi
   - pytest ; extra == 'dev'
   requires_python: '>=3.11'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/lerc-4.1.0-hdb68285_0.conda
