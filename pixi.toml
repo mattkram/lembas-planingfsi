@@ -16,7 +16,9 @@ build = { features = ["build"], solve-group = "default" }
 default = { features = ["dev"], solve-group = "default" }
 
 [feature.dev.dependencies]
+pre-commit = ">=4.0"
 pytest = "*"
+ruff = "*"
 
 [feature.build.dependencies]
 anaconda-client = "*"
@@ -28,4 +30,6 @@ build = "python scripts/with_version.py rattler-build build --recipe conda.recip
 upload = "anaconda --verbose --token $ANACONDA_ORG_TOKEN upload --user lembas-project $ANACONDA_LABEL --force"
 
 [tasks]
+pre-commit-install = "pre-commit install"
+pre-commit-run = "pre-commit run --all-files"
 test = "pytest tests/ -v"

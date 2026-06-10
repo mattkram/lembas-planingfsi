@@ -1,0 +1,52 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+  - id: check-yaml
+    exclude: "conda.recipe/.*"
+  - id: check-toml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+  - id: check-added-large-files
+  - id: check-merge-conflict
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.15.0
+  hooks:
+  - id: ruff-check
+    args: [--fix]
+  - id: ruff-format
+
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.16.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix, --preserve-quotes, --indent, "2"]
+    exclude: "conda.recipe/.*"
+  - id: pretty-format-toml
+    args: [--autofix]
+
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.4.1
+  hooks:
+  - id: codespell
+    args: [--write]
+
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.36.1
+  hooks:
+  - id: check-github-workflows
+
+- repo: local
+  hooks:
+  - id: pixi-lock
+    name: pixi lock
+    entry: pixi lock
+    language: system
+    files: ^(pixi\.toml|pyproject\.toml)$
+    pass_filenames: false
+
+- repo: meta
+  hooks:
+  - id: check-hooks-apply
+  - id: check-useless-excludes
