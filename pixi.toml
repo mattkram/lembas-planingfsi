@@ -1,24 +1,11 @@
-[workspace]
-channels = ["conda-forge", "https://conda.anaconda.org/lembas-project"]
-name = "lembas-planingfsi"
-platforms = ["linux-64", "osx-arm64"]
-
 [dependencies]
-python = ">=3.11"
 lembas = "*"
 planingfsi = "*"
-
-[pypi-dependencies]
-lembas-planingfsi = { path = ".", editable = true }
+python = ">=3.11"
 
 [environments]
-build = { features = ["build"], solve-group = "default" }
-default = { features = ["dev"], solve-group = "default" }
-
-[feature.dev.dependencies]
-pre-commit = ">=4.0"
-pytest = "*"
-ruff = "*"
+build = {features = ["build"], solve-group = "default"}
+default = {features = ["dev"], solve-group = "default"}
 
 [feature.build.dependencies]
 anaconda-client = "*"
@@ -29,7 +16,20 @@ setuptools-scm = "*"
 build = "python scripts/with_version.py rattler-build build --recipe conda.recipe/ --output-dir dist/ --channel conda-forge --channel lembas-project"
 upload = "anaconda --verbose --token $ANACONDA_ORG_TOKEN upload --user lembas-project $ANACONDA_LABEL --force"
 
+[feature.dev.dependencies]
+pre-commit = ">=4.0"
+pytest = "*"
+ruff = "*"
+
+[pypi-dependencies]
+lembas-planingfsi = {path = ".", editable = true}
+
 [tasks]
 pre-commit-install = "pre-commit install"
 pre-commit-run = "pre-commit run --all-files"
 test = "pytest tests/ -v"
+
+[workspace]
+channels = ["conda-forge", "https://conda.anaconda.org/lembas-project"]
+name = "lembas-planingfsi"
+platforms = ["linux-64", "osx-arm64"]
